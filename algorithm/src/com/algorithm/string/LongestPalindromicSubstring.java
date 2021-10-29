@@ -24,14 +24,40 @@ package com.algorithm.string;
 
 public class LongestPalindromicSubstring {
 
-    public String longestPalindrome(String s) {
-        StringBuilder res = new StringBuilder();
-        StringBuilder temp = new StringBuilder();
-        
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i; j < s.length(); j++) {
-                temp = temp.append(j);
+    public static String longestPalindrome(String s) {
+
+        String res = "";
+
+        for (int i = 0; i < s.length() - 1; i++) {
+            // 当回文串是奇数时，由中心向两边扩散
+            String s1 = palindrome(s, i, i);
+            String s2 = palindrome(s, i, i + 1);
+
+            res = res.length() > s1.length() ? res : s1;
+            res = res.length() > s2.length() ? res : s2;
+        }
+
+        String s1 = palindrome(s, s.length() - 1, s.length() - 1);
+        res = res.length() > s1.length() ? res : s1;
+        return res;
+    }
+
+    // 辅助函数:寻找回文串
+    private static String palindrome(String s, int left, int right) {
+        // 在区间[0, s.length() - 1]中寻找回文串,防止下标越界
+        while (left >= 0 && right < s.length()) {
+            if (s.charAt(left) == s.charAt(right)) {
+                left--;
+                right++;
+            } else {
+                break;
             }
         }
+        return s.substring(left + 1, right);
+    }
+
+    public static void main(String[] args) {
+        String s = "babad";
+        System.out.println(longestPalindrome(s));
     }
 }
