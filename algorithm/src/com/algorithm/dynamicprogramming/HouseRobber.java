@@ -1,6 +1,5 @@
 package com.algorithm.dynamicprogramming;
 
-import java.util.Arrays;
 
 /**
  * 198. 打家劫舍
