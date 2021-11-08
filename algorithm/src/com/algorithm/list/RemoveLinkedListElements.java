@@ -1,4 +1,4 @@
-package com.algorithm.array;
+package com.algorithm.list;
 
 /**
  * 203. 移除链表元素

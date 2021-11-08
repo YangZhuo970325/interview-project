@@ -1,4 +1,4 @@
-package com.algorithm.array;
+package com.algorithm.list;
 
 /**
  * 141. 环形链表
