@@ -60,11 +60,11 @@ public class MergeSortedArray {
         int p1 = 0, p2 = 0;
         int[] sorted = new int[m+n];
         int cur;
-        while (p1 < m && p2 < n) {
+        while (p1 < m || p2 < n) {
             if (p1 == m) {
                 cur = nums2[p2++];   // ===> 1. cur = num2[p2]; 2. p2++;
             } else if (p2 == n) {
-                cur = nums2[p1++];
+                cur = nums1[p1++];
             } else if (nums1[p1] < nums2[p2]) {
                 cur = nums1[p1++];
             } else {
@@ -101,5 +101,11 @@ public class MergeSortedArray {
             }
             nums1[tail--] = cur;
         }
+    }
+
+    public static void main(String[] args) {
+        int[] array1 = {1,2,3,0,0,0};
+        int[] array2 = {2,5,6};
+        merge2(array1, 3, array2, 3);
     }
 }
