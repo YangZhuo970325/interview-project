@@ -9,8 +9,11 @@
 <html>
 <head>
     <title>first</title>
+    <link rel="stylesheet" type="text/css" href="static/css/aaa.css">
+    <script src="static/js/ccc.js"></script>
 </head>
 <body>
     this is first jsp.
+    <img src="static/img/bbb.png">
 </body>
 </html>
